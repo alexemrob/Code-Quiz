@@ -1,4 +1,11 @@
 # Code-Quiz
+
+<br>
+<a href="https://alexemrob.github.io/Code-Quiz/">Click to Visit My Page!</a>
+<br><br>
+<img src="./assets/images/SScodeQuiz.png" alt="password generator screenshot">
+<br><br>
+
 <h3>quiz instructions</h3>
 <p>click "start quiz" to begin exam<br>
   the timer will allow 30 seconds to complete as many questions as possible<br>
