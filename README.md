@@ -7,7 +7,7 @@
 <br><br>
 
 <h3>quiz instructions</h3>
-<p>user must click "start quiz" to begin multiple choice exam<br>
+<p>user must click "Start Code Quiz!" to begin multiple choice exam<br>
   the timer will allow 30 seconds to complete as many questions as possible<br>
   the questions left unanswered within the 30 seconds will be marked as incorrect<br>
   upon completion user will recieve your total score<br>
