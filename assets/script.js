@@ -111,6 +111,8 @@ function checkAnswer(answer) {
     }
 }
 
+
+
 // when clicking submit function "highscore" saves & stringifies array of scores &
 // adds new user score in the array we are saving in local storage
 
