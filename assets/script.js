@@ -1,4 +1,4 @@
-// define variables from HTML elements
+// define variables of HTML index
 var quizBody = document.getElementById("quiz");
 var questionsEl = document.getElementById("questions");
 var quizTimer = document.getElementById("timer");
@@ -43,7 +43,8 @@ var quizQuestions = [{
 
 
 ];
-// add all other variables
+
+//create java script variables for functions
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
 var timeLeft = 30;
@@ -73,7 +74,7 @@ function startQuiz() {
     // create timer-countdown & end quiz @ 0seconds
     timerInterval = setInterval(function () {
         timeLeft--;
-        quizTimer.textContent = "Time left: " + timeLeft;
+        quizTimer.textContent = "Time Remaining: " + timeLeft;
 
         if (timeLeft === 0) {
             clearInterval(timerInterval);
@@ -88,7 +89,7 @@ function showScore() {
     gameoverDiv.style.display = "flex";
     clearInterval(timerInterval);
     highscoreInputName.value = "";
-    finalScoreEl.innerHTML = "You answered " + score + " questions out of " + quizQuestions.length + " correct!";
+    finalScoreEl.innerHTML = "You answered " + score + " / " + quizQuestions.length + " correct!";
 }
 
 
@@ -102,13 +103,86 @@ function checkAnswer(answer) {
         currentQuestionIndex++;
         generateQuizQuestion();
     } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
-        alert("Incorrect.")
+        alert("Incorrect.");
         currentQuestionIndex++;
         generateQuizQuestion();
     } else {
         showScore();
     }
 }
+
+// when clicking submit function "highscore" saves & stringifies array of scores &
+// adds new user score in the array we are saving in local storage
+
+submitScoreBtn.addEventListener("click", function highscore() {
+
+    if (highscoreInputName.value === "") {
+        alert("Please add initials to submit the score!");
+        return false;
+    } else {
+        var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+        var currentUser = highscoreInputName.value.trim();
+        var currentHighscore = {
+            name: currentUser,
+            score: score
+        };
+
+        gameoverDiv.style.display = "none";
+        highscoreContainer.style.display = "flex";
+        highscoreDiv.style.display = "block";
+        endGameBtns.style.display = "flex";
+
+        savedHighscores.push(currentHighscore);
+        localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+        generateHighscores();
+
+    }
+
+});
+
+// function clears high scores
+function generateHighscores() {
+    highscoreDisplayName.innerHTML = "";
+    highscoreDisplayScore.innerHTML = "";
+    var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+    for (i = 0; i < highscores.length; i++) {
+        var newNameSpan = document.createElement("li");
+        var newScoreSpan = document.createElement("li");
+        newNameSpan.textContent = highscores[i].name;
+        newScoreSpan.textContent = highscores[i].score;
+        highscoreDisplayName.appendChild(newNameSpan);
+        highscoreDisplayScore.appendChild(newScoreSpan);
+    }
+}
+
+// function displays high scores hiding else 
+function showHighscore() {
+    startQuizDiv.style.display = "none"
+    gameoverDiv.style.display = "none";
+    highscoreContainer.style.display = "flex";
+    highscoreDiv.style.display = "block";
+    endGameBtns.style.display = "flex";
+
+    generateHighscores();
+}
+
+// function clears local storage of scores & text
+function clearScore() {
+    window.localStorage.clear();
+    highscoreDisplayName.textContent = "";
+    highscoreDisplayScore.textContent = "";
+}
+
+// function resets variables to restart quiz
+function replayQuiz() {
+    highscoreContainer.style.display = "none";
+    gameoverDiv.style.display = "none";
+    startQuizDiv.style.display = "flex";
+    timeLeft = 76;
+    score = 0;
+    currentQuestionIndex = 0;
+}
+
 
 // create button that responds to start quiz
 startQuizButton.addEventListener("click", startQuiz);

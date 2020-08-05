@@ -1,17 +1,20 @@
+  
 :root{
-    background-color: black
+    background-color: lightslategray;
     }
     
     li{
         padding-bottom: 3px;
         color: white;
+        text-shadow: 1.5px 1px 3px black;
         list-style-type: none;
     }
     
     p{
-        color: skyblue;
+        color: whitesmoke;
+        text-shadow: .5px .5px skyblue;
         text-align: center;
-        font-size: xx-large;
+        font-size: 50px;
         font-family: Arial, Helvetica, sans-serif;
     
     }
@@ -33,19 +36,19 @@
       button {
         display: inline-block;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: blue;
+        background-color: #4450bd;
         border-radius: 10px;
-        border: 3px double white;
-        color: white;
+        border: 3px double #cccccc;
+        color: #eeeeee;
         text-align: center;
-        font-size: 15px;
+        font-size: 30px;
         padding: 20px;
-        width: 200px;
-        margin-top: 3px;
+        width: 300px;
+        height:150px
       }
     
       button:hover{
-          box-shadow: 4px 3px 6px blue;
+          box-shadow: 4px 3px 6px #4450bd;
       }
     
     #startpage{
@@ -54,16 +57,12 @@
         align-items: center;
     }
     
-    #questions{
-        background-color: black;
-        color: skyblue;
-    }
-
     #timer{
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: blue;
-        color: skyblue;
+        font-family: sans-serif;
+        background-color: lightslategray;
+        color: #eeeeee;
         font-size: x-large;
+        text-shadow: .5px .5px skyblue;
         text-align: center;
     }
     #quiz {
@@ -75,28 +74,76 @@
     }
     
     #gameover {
-        color: skyblue;
         text-align: center;
         display: none;
         flex-direction: column;
         align-items: center;
     }
-
-    #finalScore{
-        color: skyblue;
-        padding-bottom: 2rem;
-        font-size: x-large;
-        font-family: sans-serif;
+    
+    #highScore{
+        height: 1.5rem;
+        border: groove 2px;
     }
     
-    #playAgain{
+    #high-scorePage{
+        display: none;
+        width: 50%;
+        border: solid;
+        border-color: silver;
+        border-bottom-style: groove;
+        padding-bottom: .3rem;
+        background: lightsteelblue;
+    }
+    
+    #highscore-header{
+        display:flex;
+        justify-content: space-around;
+        border-bottom-style: outset;
+        margin-bottom: .5rem;
+        background-color: #5e6df1;
+        color: #eeeeee;
+        font-family: sans-serif;
+    }
+    #highscoreContainer{
+        height: 100%;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #initials{
+        margin: .5rem;
+        height: 1.75rem;
+    }
+    
+    #highscore-initials{
+        display: inline-block;
+        padding-left: 9.5rem;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    
+    #highscore-score{
+        float: right;
+        padding-right: 8.75rem;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    
+    #finalScore{
+        padding-bottom: 0.5rem;
+        font-size: x-large;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: whitesmoke
+    }
+    
+    #endGameBtns{
         display: none;
     }
 
-    #clearHighscore{
-        display: none;
-    }
-
-    #submitScore{
-        margin-top: 2rem;
+    #startbtn{
+        margin-bottom: 1rem;
     }
