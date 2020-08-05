@@ -3,7 +3,7 @@
 <br>
 <a href="https://alexemrob.github.io/Code-Quiz/">Click to Visit My Page!</a>
 <br><br>
-<img src="./assets/images/SScodeQuiz.png" alt="password generator screenshot">
+<img src="./assets/images/SScodequiz.png" alt="password generator screenshot">
 <br><br>
 
 <h3>quiz instructions</h3>
